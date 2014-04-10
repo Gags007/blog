@@ -1,0 +1,47 @@
+<style>
+.field div{
+  color: black;
+  font-style: bold;
+  font-size: 15;
+}
+</style>
+
+
+<%= form_for(@contact) do |contact_form| %>
+  <% if @contact.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @contact.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  
+  <!-- Fields of Contact Form -->
+  <div class="field">
+    <%= contact_form.label :name %><br />
+    <%= contact_form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= contact_form.label :email %><br />
+    <%= contact_form.text_field :email, :placeholder => "your@email.com" %>
+  </div>
+  <div class="field">
+    <%= contact_form.label :website %><br />
+    <%= contact_form.text_field :website, :placeholder => "www.yourwebsite.com" %>
+  </div>
+  <div class="field">
+    <%= contact_form.label :subject %><br />
+    <%= contact_form.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= contact_form.label :message %><br />
+    <%= contact_form.text_area :message %>
+  </div>
+  <div class="actions">
+    <%= contact_form.submit %>
+  </div>
+<% end %>
+

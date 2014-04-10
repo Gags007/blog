@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<style>
+.menus a{
+  padding-right: 10px;
+  color: blue;
+  font-size: 15px;
+}
+</style>
+<body>
+<body style="background: aqua;">
+
+<% if notice %>
+  <p class="alert alert-notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-error"><%= alert %></p>
+<% end %>
+
+<%= yield %>
+
+</body>
+
+ <br><br><br><b><div class="menus">
+ <div style="height:20px; margin-top:2px;background-color:#FFA500;text-align:center;font-size:15px;border-radius:15px;padding-right: 0px" id="footer">
+<%= link_to "Home", '/' %>
+<%= link_to "My Blog", posts_path %>
+<%= link_to "About Us", about_us_path %>
+<%= link_to "Contact Us", new_contact_path %> </div>
+</div> </html>	

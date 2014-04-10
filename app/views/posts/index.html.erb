@@ -1,0 +1,37 @@
+<style>
+.xyz a{
+  padding-right: 10px;
+  font-size: 15px;
+}
+.abc {color: blue;}
+</style>
+
+<h3 style="text-align:center;background-color:yellow;color:red"> Index page<div class="abc">(views/post/index) </div></h3>
+
+
+<h1>Listing posts</h1>
+
+<table border="2" bgcolor="orange">
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.name %></td>
+    <td><%= post.title %></td>
+    <td><%= post.content %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+<b>
